@@ -1,0 +1,48 @@
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    p {
+        margin-bottom: 10px;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: white;
+        background-color: #007bff;
+        border-radius: 5px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+        background-color: #0056b3;
+    }
+</style>
+<body>
+    <h1>Welcome <%= user.username %> to the Dashboard</h1>
+    <p>Your role: <%= user.role %></p>
+    <% if (user.role === 'bandoc') { %>
+        <a href="/borrow-book/<%= user.username %>" class="button">Borrow Book</a>
+        <a href="/return-book/<%= user.username %>" class="button">Return Book</a>
+    <% } %>
+    <% if (user.role === 'thuthu') { %>
+        <a href="/manage-book" class="button">Manage Books</a>
+        <a href="/manage-users" class="button">Manage Users</a>
+        <a href="/view-br-book" class="button">Borrow/Return Information</a>
+    <% } %>
+    <a href="/logout" class="button">Logout</a>
+</body

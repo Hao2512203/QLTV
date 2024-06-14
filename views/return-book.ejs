@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return Book</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        padding: 8px;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #007bff;
+        color: #fff;
+        text-align: left;
+    }
+
+    tr:nth-child(even) td {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover td {
+        background-color: #ddd;
+    }
+
+    button {
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: white;
+        background-color: #007bff;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+<body>
+    <h1>Return Book</h1>
+    <form action="/return-book/<%= user.username %>" method="POST">
+        <table class="book-table table-hover">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Title</th>
+                    <th>Tác giả</th>
+                    <th>Thể loại</th>
+                    <th>Ngày thêm</th>
+                    <th>Ngày mượn</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% borrowedBooks.forEach(function(book) { %>
+                    <tr>
+                        <td><input type="radio" name="book_id" value="<%= book.book_id %>" required></td>
+                        <td><%= book.title %></td>
+                        <td><%= book.author %></td>
+                        <td><%= book.theloai %></td>
+                        <td><%= new Date(book.published_date).toLocaleDateString('en-US', {timeZone: 'UTC'}) %></td>
+                        <td><%= new Date(book.borrow_date).toLocaleDateString('en-US', {timeZone: 'UTC'}) %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <button type="submit" class="button">Return</button>
+    </form>
+    <a href="/dashboard" class="button">Back to Dashboard</a>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Registration</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+    }
+
+    h1{ 
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    form#registerForm {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    form#registerForm label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    form#registerForm input[type="text"],
+    form#registerForm input[type="password"],
+    form#registerForm select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    form#registerForm input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    form#registerForm input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    a {
+        text-decoration: none;
+        color: #007bff;
+        transition: color 0.3s ease;
+    }
+
+    a:hover {
+        color: #0056b3;
+    }
+
+    p {
+        margin-top: 20px;
+    }
+</style>
+<body>
+    <h1>Register</h1>
+    <form id="registerForm" action="/register" method="POST">
+        <label for="full_name">Full Name:</label><br>
+        <input type="text" id="full_name" name="full_name" required><br><br>
+        
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+        
+        <label for="phone">Phone:</label><br>
+        <input type="text" id="phone" name="phone" required><br><br>
+        
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        <label for="role">Role:</label><br>
+        <select id="role" name="role" required>
+            <option value="bandoc">Ban doc</option>
+            <option value="thuthu">Thu thu</option>
+        </select><br><br>
+        
+        <input type="submit" value="Register">
+        <p>Đã có tài khoản? <a href="/login">đăng nhập</a></p> 
+    </form>
+</body>
+</html>

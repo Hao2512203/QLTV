@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Home</title>
+
+</head>
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+    }
+
+    .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    .buttons {
+        margin-top: 20px;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: white;
+        background-color: #007bff;
+        border-radius: 5px;
+    }
+
+    .button:hover {
+        background-color: #0056b3;
+    }
+</style>
+<body>
+    <form class="form-container" action="/submit" method="POST">
+        <div class="container">
+            <h1>Welcome to the Library</h1>
+            <div class="buttons">
+                <a href="/register" class="button">Register</a>
+                <a href="/login" class="button">Login</a>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

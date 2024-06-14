@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Books</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: white;
+        background-color: #007bff;
+        border-radius: 5px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+        background-color: #0056b3;
+    }
+
+    .book-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    .book-table th, .book-table td {
+        padding: 8px;
+        border: 1px solid #ddd;
+    }
+
+    .book-table th {
+        background-color: #007bff;
+        color: #fff;
+        text-align: left;
+    }
+
+    .book-table td {
+        background-color: #fff;
+    }
+
+    .book-table tr:nth-child(even) td {
+        background-color: #f2f2f2;
+    }
+
+    .book-table tr:hover td {
+        background-color: #ddd;
+    }
+
+    .action-button {
+        display: inline-block;
+        padding: 5px 10px;
+        text-decoration: none;
+        color: #333;
+        background-color: #ddd;
+        border-radius: 3px;
+        margin-right: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .action-button:hover {
+        background-color: #ccc;
+    }
+</style>
+<body>
+    <h1>Manage Books</h1>
+    <a href="/add-book" class="button">Add New Book</a>
+    <table class="book-table table-hover">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Tác giả</th>
+                <th>Thể loại</th>
+                <th>Ngày thêm</th>
+                <th>Tình tạng sách</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% books.forEach(function(book) { %>
+                <tr>
+                    <td><%= book.title %></td>
+                    <td><%= book.author %></td>
+                    <td><%= book.theloai %></td>
+                    <td><%= new Date(book.published_date).toLocaleDateString('en-US', {timeZone: 'UTC'}) %></td>
+                    <td><%= book.status %></td>
+                    <td>
+                        <a href="/edit-book/<%= book.id %>" class="action-button">Edit</a>
+                        <a href="/delete-book/<%= book.id %>" class="action-button">Delete</a>
+                    </td>
+                </tr>
+            <% }); %>
+            <tr>
+        </tbody>
+    </table>
+    <a href="/dashboard" class="button">Back to Dashboard</a>
+</body>
+</html>
